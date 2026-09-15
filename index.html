@@ -1,8 +1,725 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-  <meta http-equiv="refresh" content="0; url=https://ifwa-dev.github.io/privacy-policy/hermes_cadence">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ifwa | Apps</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Noto Sans KR",
+        Arial,
+        sans-serif;
+
+      background: #f7f8fa;
+      color: #191f28;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 72px;
+
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid #e8ebed;
+    }
+
+    .nav {
+      max-width: 1120px;
+      height: 100%;
+
+      margin: 0 auto;
+      padding: 0 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4e5968;
+
+      font-size: 15px;
+      font-weight: 600;
+
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #191f28;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      max-width: 1120px;
+
+      margin: 0 auto;
+      padding: 120px 24px 90px;
+    }
+
+    .hero-label {
+      display: inline-block;
+
+      margin-bottom: 22px;
+
+      color: #3182f6;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      max-width: 720px;
+
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.12;
+
+      letter-spacing: -2.5px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      max-width: 610px;
+
+      margin-top: 28px;
+
+      color: #6b7684;
+
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    /* =========================
+       APPS SECTION
+    ========================= */
+
+    .apps-section {
+      max-width: 1120px;
+
+      margin: 0 auto;
+      padding: 70px 24px 130px;
+    }
+
+    .section-title {
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      letter-spacing: -1px;
+    }
+
+    .section-title p {
+      margin-top: 10px;
+
+      color: #8b95a1;
+      font-size: 16px;
+    }
+
+    /* =========================
+       APP GRID
+    ========================= */
+
+    .app-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 24px;
+    }
+
+    .app-card {
+      min-height: 390px;
+
+      padding: 36px;
+
+      background: #ffffff;
+
+      border: 1px solid #edf0f2;
+      border-radius: 28px;
+
+      display: flex;
+      flex-direction: column;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-6px);
+
+      border-color: #e1e5e8;
+
+      box-shadow:
+        0 20px 45px
+        rgba(0, 0, 0, 0.07);
+    }
+
+    /* =========================
+       APP ICON
+    ========================= */
+
+    .app-icon {
+      width: 72px;
+      height: 72px;
+
+      border-radius: 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 30px;
+      font-weight: 800;
+
+      margin-bottom: 28px;
+    }
+
+    .hermes-icon {
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          135deg,
+          #3155d9,
+          #7289ff
+        );
+    }
+
+    .eodego-icon {
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          135deg,
+          #222831,
+          #57606f
+        );
+    }
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    .status {
+      width: fit-content;
+
+      padding: 6px 11px;
+
+      border-radius: 100px;
+
+      font-size: 12px;
+      font-weight: 700;
+
+      margin-bottom: 14px;
+    }
+
+    .status-live {
+      background: #e8f8ef;
+      color: #16834b;
+    }
+
+    .status-dev {
+      background: #f0f2f5;
+      color: #6b7684;
+    }
+
+    /* =========================
+       APP TEXT
+    ========================= */
+
+    .app-card h3 {
+      font-size: 27px;
+      letter-spacing: -0.8px;
+    }
+
+    .app-card .subtitle {
+      margin-top: 5px;
+
+      color: #8b95a1;
+
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .app-description {
+      margin-top: 20px;
+
+      color: #6b7684;
+
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    /* =========================
+       APP BUTTONS
+    ========================= */
+
+    .app-links {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: auto;
+      padding-top: 30px;
+    }
+
+    .app-button {
+      display: inline-flex;
+      align-items: center;
+
+      padding: 11px 17px;
+
+      border-radius: 12px;
+
+      background: #f2f4f6;
+
+      color: #333d4b;
+
+      text-decoration: none;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .app-button:hover {
+      background: #e8ebed;
+      transform: translateY(-2px);
+    }
+
+    .app-button.primary {
+      background: #191f28;
+      color: #ffffff;
+    }
+
+    .app-button.primary:hover {
+      background: #333d4b;
+    }
+
+    .coming-soon {
+      cursor: default;
+      color: #8b95a1;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      background: #ffffff;
+
+      border-top: 1px solid #edf0f2;
+      border-bottom: 1px solid #edf0f2;
+    }
+
+    .about-inner {
+      max-width: 1120px;
+
+      margin: 0 auto;
+      padding: 100px 24px;
+    }
+
+    .about-inner h2 {
+      font-size: 34px;
+      letter-spacing: -1px;
+    }
+
+    .about-inner p {
+      max-width: 620px;
+
+      margin-top: 18px;
+
+      color: #6b7684;
+
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      max-width: 1120px;
+
+      margin: 0 auto;
+      padding: 100px 24px;
+    }
+
+    .contact h2 {
+      font-size: 34px;
+      letter-spacing: -1px;
+    }
+
+    .contact p {
+      margin-top: 16px;
+
+      color: #6b7684;
+    }
+
+    .contact a {
+      display: inline-block;
+
+      margin-top: 20px;
+
+      color: #3182f6;
+
+      font-size: 17px;
+      font-weight: 700;
+
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      max-width: 1120px;
+
+      margin: 0 auto;
+      padding: 35px 24px 50px;
+
+      border-top: 1px solid #e8ebed;
+
+      color: #8b95a1;
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 760px) {
+
+      header {
+        height: 64px;
+      }
+
+      .nav-links {
+        gap: 16px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      .hero {
+        padding-top: 85px;
+        padding-bottom: 60px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.7px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .apps-section {
+        padding-top: 50px;
+        padding-bottom: 90px;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+
+      .app-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .app-card {
+        min-height: 360px;
+        padding: 28px;
+      }
+
+      .about-inner,
+      .contact {
+        padding-top: 75px;
+        padding-bottom: 75px;
+      }
+    }
+
+  </style>
 </head>
+
+
 <body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="nav">
+
+      <div class="logo">
+        Ifwa
+      </div>
+
+      <div class="nav-links">
+        <a href="#apps">Apps</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <main>
+
+    <section class="hero">
+
+      <span class="hero-label">
+        IFWA
+      </span>
+
+      <h1>
+        작은 아이디어를<br>
+        실제 앱으로 만듭니다.
+      </h1>
+
+      <p>
+        일상 속 작은 아이디어에서 시작해
+        직접 사용할 수 있는 모바일 서비스를 만들고 있습니다.
+      </p>
+
+    </section>
+
+
+    <!-- APPS -->
+    <section
+      class="apps-section"
+      id="apps"
+    >
+
+      <div class="section-title">
+
+        <h2>
+          Apps
+        </h2>
+
+        <p>
+          Ifwa에서 만들고 운영하는 앱입니다.
+        </p>
+
+      </div>
+
+
+      <div class="app-grid">
+
+
+        <!-- HERMES' CADENCE -->
+        <article class="app-card">
+
+          <div class="app-icon hermes-icon">
+            H
+          </div>
+
+          <span class="status status-live">
+            ● 운영 중
+          </span>
+
+          <h3>
+            Hermes' Cadence
+          </h3>
+
+          <div class="subtitle">
+            Running Cadence Training
+          </div>
+
+          <p class="app-description">
+            사운드와 컬러 리듬을 따라
+            목표 케이던스에 맞춰 달릴 수 있도록 돕는
+            러닝 트레이닝 앱입니다.
+          </p>
+
+
+          <div class="app-links">
+
+            <!-- Google Play -->
+            <a
+              class="app-button primary"
+              href="https://play.google.com/store/apps/details?id=com.ifwa.hermescadence"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google Play
+            </a>
+
+
+            <!-- Apple App Store -->
+            <a
+              class="app-button"
+              href="https://apps.apple.com/kr/app/id6760294247"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              App Store
+            </a>
+
+
+            <!-- Privacy Policy -->
+            <a
+              class="app-button"
+              href="/privacy-policy/hermes_cadence/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Privacy Policy
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- EODEGO -->
+        <article class="app-card">
+
+          <div class="app-icon eodego-icon">
+            어
+          </div>
+
+          <span class="status status-dev">
+            ● 개발 중
+          </span>
+
+          <h3>
+            어데고
+          </h3>
+
+          <div class="subtitle">
+            우리 어디서 만날까?
+          </div>
+
+          <p class="app-description">
+            여러 사람의 이동 시간을 비교해
+            모두가 보다 공정하게 만날 수 있는
+            장소를 찾는 서비스입니다.
+          </p>
+
+
+          <div class="app-links">
+
+            <span class="app-button coming-soon">
+              Coming Soon
+            </span>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section
+      class="about"
+      id="about"
+    >
+
+      <div class="about-inner">
+
+        <h2>
+          About Ifwa
+        </h2>
+
+        <p>
+          Ifwa는 일상에서 발견한 아이디어를
+          모바일 앱으로 만들고 운영합니다.
+          작지만 실제로 도움이 되는 서비스를 만드는 것을 목표로 합니다.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section
+      class="contact"
+      id="contact"
+    >
+
+      <h2>
+        Contact
+      </h2>
+
+      <p>
+        앱 관련 문의 및 지원이 필요한 경우
+        아래 이메일로 연락해주세요.
+      </p>
+
+      <a href="mailto:ifwa.dev@gmail.com">
+        ifwa.dev@gmail.com
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Ifwa. All rights reserved.
+  </footer>
+
+
 </body>
 </html>
