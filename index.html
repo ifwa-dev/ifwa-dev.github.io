@@ -171,19 +171,22 @@
       font-weight: 800;
 
       margin-bottom: 28px;
+
+      overflow: hidden;
+      flex-shrink: 0;
     }
 
-    .hermes-icon {
-      color: #ffffff;
+    /* 실제 앱 아이콘 이미지 */
+    .app-icon-image {
+      width: 100%;
+      height: 100%;
 
-      background:
-        linear-gradient(
-          135deg,
-          #3155d9,
-          #7289ff
-        );
+      object-fit: cover;
+
+      display: block;
     }
 
+    /* 어데고 임시 아이콘 */
     .eodego-icon {
       color: #ffffff;
 
@@ -298,7 +301,6 @@
       user-select: none;
     }
 
-    /* 마우스를 올렸을 때 */
     .app-button:hover {
       background: #e8ebed;
       border-color: #d8dde2;
@@ -310,7 +312,6 @@
         rgba(0, 0, 0, 0.06);
     }
 
-    /* 실제로 누르고 있는 순간 */
     .app-button:active {
       background: #dfe3e7;
 
@@ -321,7 +322,6 @@
       box-shadow: none;
     }
 
-    /* 키보드 접근 */
     .app-button:focus-visible {
       outline: 3px solid rgba(49, 130, 246, 0.22);
       outline-offset: 2px;
@@ -335,6 +335,7 @@
     .coming-soon:hover {
       background: #f2f4f6;
       border-color: #e5e8eb;
+
       transform: none;
       box-shadow: none;
     }
@@ -505,6 +506,7 @@
 
   <!-- HEADER -->
   <header>
+
     <nav class="nav">
 
       <div class="logo">
@@ -512,12 +514,23 @@
       </div>
 
       <div class="nav-links">
-        <a href="#apps">Apps</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+
+        <a href="#apps">
+          Apps
+        </a>
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
       </div>
 
     </nav>
+
   </header>
 
 
@@ -545,24 +558,38 @@
       <div class="app-grid">
 
 
-        <!-- HERMES' CADENCE -->
+        <!-- =====================
+             HERMES' CADENCE
+        ====================== -->
+
         <article class="app-card">
 
-          <div class="app-icon hermes-icon">
-            H
+          <!-- 실제 Hermes' Cadence 앱 아이콘 -->
+          <div class="app-icon">
+
+            <img
+              src="/app-logo/HermesCadence_Icon.png"
+              alt="Hermes' Cadence"
+              class="app-icon-image"
+            >
+
           </div>
+
 
           <span class="status status-live">
             ● 운영 중
           </span>
 
+
           <h3>
             Hermes' Cadence
           </h3>
 
+
           <div class="subtitle">
             Running Cadence Training
           </div>
+
 
           <p class="app-description">
             사운드와 컬러 리듬을 따라
@@ -611,24 +638,32 @@
 
 
 
-        <!-- EODEGO -->
+        <!-- =====================
+             EODEGO
+        ====================== -->
+
         <article class="app-card">
 
+          <!-- 어데고는 현재 임시 아이콘 -->
           <div class="app-icon eodego-icon">
             어
           </div>
+
 
           <span class="status status-dev">
             ● 개발 중
           </span>
 
+
           <h3>
             어데고
           </h3>
 
+
           <div class="subtitle">
             우리 어디서 만날까?
           </div>
+
 
           <p class="app-description">
             여러 사람의 이동 시간을 비교해
@@ -653,7 +688,11 @@
     </section>
 
 
-    <!-- ABOUT -->
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
     <section
       class="about"
       id="about"
@@ -665,9 +704,11 @@
           ABOUT IFWA
         </span>
 
+
         <h2>
           If We Act.
         </h2>
+
 
         <p>
           생각만으로는 세상이 달라지지 않습니다.<br>
@@ -680,7 +721,11 @@
     </section>
 
 
-    <!-- CONTACT -->
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
     <section
       class="contact"
       id="contact"
@@ -690,10 +735,12 @@
         Contact
       </h2>
 
+
       <p>
         앱 관련 문의 및 지원이 필요한 경우
         아래 이메일로 연락해주세요.
       </p>
+
 
       <a href="mailto:ifwa.dev@gmail.com">
         ifwa.dev@gmail.com
@@ -702,6 +749,7 @@
     </section>
 
   </main>
+
 
 
   <!-- FOOTER -->
